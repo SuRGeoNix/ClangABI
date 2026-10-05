@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+	<Description>C-to-C# ABI binding generator powered by ClangSharp, with support for records, enums, functions, callbacks, macros, inline functions, and customizable post-processing.</Description>
+	<Version>1.0.0-alpha</Version>
+	<Authors>SuRGeoNix</Authors>
+	<Copyright>SuRGeoNix © 2026</Copyright>
+	<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	<PackageProjectUrl>https://github.com/SuRGeoNix/ClangABI</PackageProjectUrl>
+	<PackageTags>clang clangsharp abi interop ffi bindings native csharp codegen pinvoke</PackageTags>
+	<RepositoryUrl>https://github.com/SuRGeoNix/ClangABI</RepositoryUrl>
+	<RepositoryType>git</RepositoryType>
+	<IncludeSymbols>true</IncludeSymbols>
+	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+	<PackageReleaseNotes>
+		Initial alpha release
+	</PackageReleaseNotes>
+	<PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ClangSharp.Interop" Version="21.1.8.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+	<Using Include="ClangABI.Generator.BindingGenerator">
+	  <Static>True</Static>
+	</Using>
+	<Using Include="ClangSharp.Interop" />
+    <Using Include="System.Security" />
+    <Using Include="System.Text" />
+    <Using Include="System.Text.RegularExpressions" />
+  </ItemGroup>
+
+</Project>
